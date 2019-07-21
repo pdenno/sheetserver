@@ -75,7 +75,7 @@ and URIs to access the data secified in the map. The example contains one map th
                               "query-param"     :  "item-id"
                               "user"            :  "Material Item No.",
                               "open-api-model"  :  "Item.id", },
-	              "value" :  {"column"          :  "B",
+                  "value" :  {"column"          :  "B",
                               "user"            :  "O.H. Qty.",
                               "open-api-model"  :  "Item.onhand-quantity"}}}
 ```				
