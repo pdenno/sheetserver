@@ -41,18 +41,18 @@ except maybe keep the default port (8855).
 * `--mapping` a mapping file, as described below.
 * `--schema` an Open API specification. See `resources/warehouse.json` or `resources/warehouse.yaml` for an example.
 * `--spreadsheet` an spreadsheet (.xlsx file).
-* `--sheet` a name of a 
+* `--sheet` a name of a sheet in the spreadsheet. 
 
 ### Running as a developer
 
 ```
 (in-ns 'pdenno.sheetserver.core)
-(start-server)
+(start-server!)
 
 ; Jul 21, 2019 4:01:53 PM clojure.tools.logging$eval454$fn__457 invoke
 ; INFO: Server starting on port 8855
 ```
-A keyword can be substitued for a command-line switch. Thus `(start-server :port 8989)`. 
+Running as a developer, use keywords in lieu of command-line switchs. Thus `(start-server! :port 8989)`. 
 
 
 ## Examples

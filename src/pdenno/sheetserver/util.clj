@@ -54,7 +54,3 @@
         (keyword (str left right))))))
 
 (defn now [] (new java.util.Date))
-
-
-
-

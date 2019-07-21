@@ -122,7 +122,7 @@
   (when (nil? @server)
     (log/info "Server starting on port" port)
     (as-> {} ?s
-      (assoc ?s :mapping (->> (util/read-json mapping) cleanup-map))
+      (assoc ?s :mapping (-> (util/read-json mapping) cleanup-map))
       (assoc ?s :open-api (util/read-json schema))
       (assoc ?s :spreadsheet (read-spreadsheet spreadsheet sheet))
       (assoc ?s :server (make-handlers (:mapping ?s)))
