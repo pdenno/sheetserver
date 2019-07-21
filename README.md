@@ -2,6 +2,8 @@
 
 An exploratory program to serve content from a spreadsheet using an Open API interface
 
+Its purpose is to be like training wheels for someone who wants to experiment with service-orientation and Open API.
+
 ## Installation
 
 ### Install for development
@@ -34,11 +36,11 @@ Any of the optional arguments not specified default to the example usage in the 
 Typical usage is one of (1) run the example:(use no args), (2) specify just the --port, and (3) specify all args
 except maybe keep the default port (8855).
 
-`--port` a port number.
-`--mapping` a mapping file, as described below.
-`--schema` an Open API specification. See `resources/warehouse.json` or `resources/warehouse.yaml` for an example.
-`--spreadsheet` an spreadsheet (.xlsx file).
-`--sheet` a name of a 
+* `--port` a port number.
+* `--mapping` a mapping file, as described below.
+* `--schema` an Open API specification. See `resources/warehouse.json` or `resources/warehouse.yaml` for an example.
+* `--spreadsheet` an spreadsheet (.xlsx file).
+* `--sheet` a name of a 
 
 ### Running as a developer
 
@@ -91,7 +93,7 @@ Thus in this example a valid URI path is `/warehouse/matl-onhand?item-id=whateve
 
 ### Limitations
 
-(1) The only http method supported is GET.
+(1) The only http method currently supported is GET.
 
 (2) The GET uses only one query parameter; this parameter's value selects the spreadsheet row, 
 the URI path as described in the mapping, selects the cell.
