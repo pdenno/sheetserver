@@ -1,7 +1,6 @@
 # sheetserver
 
-An exploratory program to serve content from a spreadsheet using an Open API interface
-
+sheetserver is an exploratory program to serve content from a spreadsheet using an Open API interface.
 Its purpose is to be like training wheels for someone who wants to experiment with service-orientation and Open API.
 
 ## Installation
