@@ -15,13 +15,15 @@ Its purpose is to be like training wheels for someone who wants to experiment wi
 
 (4) Navigate to http://localhost:8855/sheetserver/ok . You should get an 'ok'
 
-(5) Any further investigation assumes you are willing to learn a little about [https://clojure.org/](Clojure). Above all, have fun!
+(5) Any further investigation assumes you are willing to learn a little about [Clojure](https://clojure.org/). Above all, have fun!
 
 ### Install for non-developer usage
 
 Ask for a jar file. 
 
-## Running as a non-developer
+## Running the program
+
+### Running as a non-developer
 
 ```
 Usage: java -jar sheetserver-0.1.0-standalone.jar [--port <port num>]
