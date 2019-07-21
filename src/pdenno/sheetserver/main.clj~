@@ -1,2 +1,0 @@
-(ns pdenno.sheetserver.main
-  (:gen-class))
