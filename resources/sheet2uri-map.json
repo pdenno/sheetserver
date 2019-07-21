@@ -1,0 +1,12 @@
+[{"path"      :  "/warehouse/matl-onhand",
+  "method"    :  "get"
+  "type"      :  "at-most-one"
+  "map"       :   {"key"    :  {"column"          :  "A",
+ 				"query-param"     :  "item-id"
+			        "user"            :  "Material Item No.",
+			        "open-api-model"  :  "Item.id", },
+		   
+		   "value"  :  {"column"         :  "B",
+				"user"           :  "O.H. Qty.",
+				"open-api-model" :  "Item.onhand-quantity"}}}]
+

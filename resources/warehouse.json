@@ -1,0 +1,100 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Inventory SheetServer Example",
+    "version": "1.0.0",
+    "title": "Inventory Sheetserver",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "apiteam@swagger.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "inventory.swagger.io",
+  "basePath": "/v2",
+  "tags": [
+    {
+      "name": "warehouse",
+      "description": "Everything about our finished and raw material inventory",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://github.com/pdenno/sheetserver"
+      }
+    }
+  ],
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/warehouse/matl-onhand": {
+      "get": {
+        "tags": [
+          "warehouse"
+        ],
+        "summary": "Find available quantity of an input material",
+        "description": "For valid response try integer IDs with value >= 1 and <= 10. Other values will generated exceptions",
+        "operationId": "getOrderById",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "item-id",
+            "in": "query",
+            "description": "Input item identifier (for fabric, etc.)",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation -- all item info for now!",
+            "schema": {
+              "$ref": "#/definitions/Item"
+            }
+          },
+          "400": {
+            "description": "Invalid item ID supplied"
+          },
+          "404": {
+            "description": "Item not found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Item": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "onhand-quantity": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "PO-quantity": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "four-week-balance": {
+          "type": "integer",
+          "description": "Quantity expected in four weeks"
+        }
+      },
+      "xml": {
+        "name": "Item"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}
