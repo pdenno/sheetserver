@@ -4,19 +4,23 @@ An exploratory program to serve content from a spreadsheet using an Open API int
 
 ## Installation
 
-### Developer usage
+### Install for development
 
 (1) Install [leiningen](https://leiningen.org/) as described on that page.
+
 (2) Download this repository (https://github.com/pdenno/sheetserver) 
+
 (3) Execute `lein run` in the directory in which you downloaded the repository.
+
 (4) Navigate to http://localhost:8855/sheetserver/ok . You should get an 'ok'
+
 (5) Any further investigation assumes you are willing to learn a little about [https://clojure.org/](Clojure). Above all, have fun!
 
-### Non-developer usage
+### Install for non-developer usage
 
 Ask for a jar file. 
 
-## Running it as a non-developer
+## Running as a non-developer
 
 ```
 Usage: java -jar sheetserver-0.1.0-standalone.jar [--port <port num>]
@@ -36,7 +40,7 @@ except maybe keep the default port (8855).
 `--spreadsheet` an spreadsheet (.xlsx file).
 `--sheet` a name of a 
 
-### Running it as a developer
+### Running as a developer
 
 ```
 (in-ns 'pdenno.sheetserver.core)
@@ -67,18 +71,18 @@ and URIs to access the data secified in the map. The example contains one map th
  "type"      :  "at-most-one"
  "map"       :   {"key"   :  {"column"          :  "A",
                               "query-param"     :  "item-id"
-			                  "user"            :  "Material Item No.",
-			                  "open-api-model"  :  "Item.id", },
+                              "user"            :  "Material Item No.",
+                              "open-api-model"  :  "Item.id", },
 	              "value" :  {"column"          :  "B",
- 				              "user"            :  "O.H. Qty.",
-				              "open-api-model"  :  "Item.onhand-quantity"}}}
+                              "user"            :  "O.H. Qty.",
+                              "open-api-model"  :  "Item.onhand-quantity"}}}
 ```				
 
  * `path` is the URI sans query string.
  * `method` is the http method to be invoked. (`get` is currently the only choice.)
  * `map` starts the map specification, described in the next bullets.
  * `type` `at-most-one` (currently the only choice) stipulates that the relationship between the key and value is 1-1.
- * `column` (in both `key` and `value`) specifies the column A,B,C... where the data property is found; conventional office tool nomenclature.
+ * `column` (in both `key` and `value`) specifies the column (A,B,C,..). where the data property is found; conventional office tool nomenclature.
  * `open-api-model` is a reference to this property in the corresponding Open API spec. (resources/warehouse.json in the example.)
  * `user` is an optional user name for the property. It could be the column heading in the spreadsheet.
  * `query-param` is the query-string parameter to be used in the URI. 
