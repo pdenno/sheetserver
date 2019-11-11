@@ -36,13 +36,14 @@
       json/read-str
       keywordize))
 
-(defn convert-to-base
+;;; These can be deleted once I've check the slacker solution below. 
+#_(defn convert-to-base
   "Return a string representing the argument number in a new arbitrary base (up to 36, I hear)."
   [n to-base]
   (when (> to-base 36) (throw (ex-info "Max radix is 36" {:radix n})))
   (. Integer toString n to-base))
 
-(defn column-key
+#_(defn column-key
   "Return the column name corresponding to n (n=1 --> :A, n=28 --> :AC)"
   [n]
   (when (> n 676) (throw (ex-info "Column-letters n>676" {:n n})))
@@ -52,5 +53,12 @@
       (let [right (->> (mod n 26) dec (nth letters))
             left  (->> (->  n (/ 26) Math/floor int) dec (nth letters))]
         (keyword (str left right))))))
+
+;;; This, from a slacker, to replace the previous two functions!
+(defn string-permute
+  ([chars] (string-permute [""] chars))
+  ([prev chars]
+   (let [strs (mapcat (fn [c] (map (fn [s] (str c s)) prev)) chars)]
+     (lazy-cat strs (string-permute strs chars)))))
 
 (defn now [] (new java.util.Date))

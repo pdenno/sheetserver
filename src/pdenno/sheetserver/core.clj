@@ -95,7 +95,8 @@
                  (cond (= n 0) 0, 
                        (not (nth row1 n)) (recur (dec n))
                        :else (inc n)))
-          keys (mapv util/column-key (range 1 (inc len)))]
+          keys (map keyword (take len (util/string-permute "ABCDEFGHIJKLMNOPQRSTUVWXYZ")))]
+               #_(mapv util/column-key (range 1 (inc len)))
       ;; POD This is all sort of silly. Can we access cells a better way?
       (ss/select-columns (zipmap keys keys) sheet))))
 
